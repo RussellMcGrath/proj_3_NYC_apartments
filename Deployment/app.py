@@ -8,9 +8,9 @@ app = Flask(__name__)
 # model = pickle.load(open('model.pkl', 'rb'))
 limits = [450.0, 1800.0]
 model_dict = {
-    "manhattan":pickle.load(open('../models/Manhattan_model_2.pkl', 'rb')),
-    "queens":pickle.load(open('../models/Queens_model_2.pkl', 'rb')),
-    "brooklyn":pickle.load(open('../models/Brooklyn_model_2.pkl', 'rb'))
+    "manhattan":pickle.load(open('models/Manhattan_model_2.pkl', 'rb')),
+    "queens":pickle.load(open('models/Queens_model_2.pkl', 'rb')),
+    "brooklyn":pickle.load(open('models/Brooklyn_model_2.pkl', 'rb'))
 }
 
 @app.route('/')
