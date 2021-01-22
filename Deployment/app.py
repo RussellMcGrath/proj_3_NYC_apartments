@@ -40,7 +40,7 @@ def results():
     int_features = [float(x) for x in int_features[1:3]]
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
-
+    
     output = prediction[0]
     return jsonify(output)
 
