@@ -17,20 +17,28 @@
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="borough" placeholder="borough" required="required" />
+      <select name="borough" id="boroughlist">
+        <option disabled selected value> -- select a borough -- </option>
+        <option>Brooklyn</option>
+        <option>Manhattan</option>
+        <option>Queens</option>        
+      </select>
       <!-- <input type="text" name="bathrooms" placeholder="bathrooms" required="required" /> -->
-		  <input type="text" name="size_sqft" placeholder="size_sqft" required="required" />
+		  <input type="text" name="size_sqft" placeholder="-- enter square footage --" required="required" />
       <!-- <input type="text" name="min_to_subway" placeholder="min_to_subway" required="required" /> -->
-      <input type="text" name="building_age_yrs" placeholder="building_age_years" required="required" />
-      <input type="text" name="floor" placeholder="floor" required="required" />      
+      <input type="text" name="building_age_yrs" placeholder="-- enter building age (yrs) --" required="required" />
+      <input type="text" name="floor" placeholder="-- enter floor number --" required="required" />      
       <!-- <input type="text" name="no_fees" placeholder="no_fees" required="required" />
       <input type="text" name="has_roofdeck" placeholder="has_roofdeck" required="required" /> -->
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Rent</button>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict Rent</button>
     </form>
 
    <br>
    <br>
    {{ prediction_text }}
+   <br>
+   <br>
+   <a href="/tableau">TABLEAU PLACEHOLDER</a>
 
  </div>
 

@@ -8,9 +8,9 @@ app = Flask(__name__)
 # model = pickle.load(open('model.pkl', 'rb'))
 limits = [450.0, 1800.0]
 model_dict = {
-    "manhattan":pickle.load(open('../models/Manhattan_model_2.pkl', 'rb')),
-    "queens":pickle.load(open('../models/Queens_model_2.pkl', 'rb')),
-    "brooklyn":pickle.load(open('../models/Brooklyn_model_2.pkl', 'rb'))
+    "manhattan":pickle.load(open('models/Manhattan_model_2.pkl', 'rb')),
+    "queens":pickle.load(open('models/Queens_model_2.pkl', 'rb')),
+    "brooklyn":pickle.load(open('models/Brooklyn_model_2.pkl', 'rb'))
 }
 
 @app.route('/')
@@ -30,7 +30,7 @@ def predict():
     
     output = round(prediction[0], 2)
 
-    return render_template('index.html', prediction_text='Rent should be $ {}'.format(output))
+    return render_template('index.html', prediction_text='Predicted Rent ${}'.format(output))
 
 @app.route('/results',methods=['POST'])
 def results():
@@ -40,9 +40,13 @@ def results():
     int_features = [float(x) for x in int_features[1:3]]
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
-
+    
     output = prediction[0]
     return jsonify(output)
+
+@app.route('/tableau')
+def tableau():
+    return render_template('tableau_placeholder.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
