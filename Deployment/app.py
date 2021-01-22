@@ -30,7 +30,7 @@ def predict():
     
     output = round(prediction[0], 2)
 
-    return render_template('index.html', prediction_text='Rent should be $ {}'.format(output))
+    return render_template('index.html', prediction_text='Predicted Rent ${}'.format(output))
 
 @app.route('/results',methods=['POST'])
 def results():
@@ -43,6 +43,10 @@ def results():
     
     output = prediction[0]
     return jsonify(output)
+
+@app.route('/tableau')
+def tableau():
+    return render_template('tableau_placeholder.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
