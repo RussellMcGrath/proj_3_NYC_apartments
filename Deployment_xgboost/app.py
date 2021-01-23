@@ -36,6 +36,7 @@ def predict():
     
     output = round(y_sc.inverse_transform(prediction)[0], 0)
 
+    # defaults = [x for x in request.form.values()]
     return render_template('index.html', prediction_text='Predicted Rent: ${}'.format(output))
 
 if __name__ == "__main__":

@@ -8,13 +8,17 @@
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  
+<!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+
+
 </head>
 
 <body style="background: #000;">
  <div class="header">
   <h1>Rent Forecasting</h1>
   {{ prediction_text }}
+  <br>
+  <br>
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
@@ -27,7 +31,7 @@
         <option value='Queens'>Queens</option>        
       </select><br>
       <label for="bedrooms">Bedrooms: </label>
-      <input type="text" name="bedrooms" placeholder="-- enter no. of bedrooms --" required="required"/><br>
+      <input type="text" id="bedrooms" name="bedrooms" placeholder="-- enter no. of bedrooms --" required="required"/><br>
       <label for="bathrooms">Bathrooms: </label>
       <input type="text" name="bathrooms" placeholder="-- enter no. of bathrooms --" required="required"/><br>
       <label for="size_sqft">Square Footage: </label>
@@ -86,7 +90,13 @@
         <option value=1>Yes</option>
         <option value=0>No</option>      
       </select><br>
-            
+
+    <!-- <script type="text/javascript">
+      var defaults = '{{ defaults }}'
+    </script>
+
+    <script type="text/javascript" src="../static/js/defaults.js"></script>   -->
+
       <!-- <input type="text" name="no_fees" placeholder="no_fees" required="required" value='1'/>
       <input type="text" name="has_roofdeck" placeholder="has_roofdeck" required="required" value='0'/>
       <input type="text" name="has_patio" placeholder="has_patio" required="required" value='0'/>
@@ -100,8 +110,8 @@
     </form>
 
    <br>
-   <br>
-   {{ prediction_text }}
+
+  
 
  </div>
 
