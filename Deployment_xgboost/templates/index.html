@@ -13,26 +13,88 @@
 
 <body style="background: #000;">
  <div class="header">
-	<h1>Rent Forecasting</h1>
+  <h1>Rent Forecasting</h1>
+  {{ prediction_text }}
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
       <button type="submit" class="btn btn-primary btn-block btn-large">Predict Rent</button>
-    	<input type="text" name="borough" placeholder="borough" required="required" value="Manhattan"/>
-      <input type="text" name="bedrooms" placeholder="bedrooms" required="required" value='2'/>
-      <input type="text" name="bathrooms" placeholder="bathrooms" required="required" value='1'/>
-		  <input type="text" name="size_sqft" placeholder="size_sqft" required="required" value='1000'/>
-      <input type="text" name="min_to_subway" placeholder="min_to_subway" required="required" value='5'/>
-      <input type="text" name="building_age_yrs" placeholder="building_age_years" required="required" value='10'/>
-      <input type="text" name="floor" placeholder="floor" required="required" value='10'/>      
-      <input type="text" name="no_fees" placeholder="no_fees" required="required" value='1'/>
+      <label for="borough">Borough: </label>
+      <select name="borough" id="boroughlist">
+        <option disabled selected value> -- select a borough -- </option>
+        <option value='Brooklyn'>Brooklyn</option>
+        <option value='Manhattan'>Manhattan</option>
+        <option value='Queens'>Queens</option>        
+      </select><br>
+      <label for="bedrooms">Bedrooms: </label>
+      <input type="text" name="bedrooms" placeholder="-- enter no. of bedrooms --" required="required"/><br>
+      <label for="bathrooms">Bathrooms: </label>
+      <input type="text" name="bathrooms" placeholder="-- enter no. of bathrooms --" required="required"/><br>
+      <label for="size_sqft">Square Footage: </label>
+      <input type="text" name="size_sqft" placeholder="-- enter square footage --" required="required"/><br>
+      <label for="min_to_subway">Minutes to Subway: </label>
+      <input type="text" name="min_to_subway" placeholder="-- enter distance to subway (minutes) --" required="required"/><br>
+      <label for="building_age_yrs">Building Age: </label>
+      <input type="text" name="building_age_yrs" placeholder="-- enter building age (years) --" required="required"/><br>
+      <label for="floor">Floor: </label>
+      <input type="text" name="floor" placeholder="-- enter floor no. --" required="required"/><br>   
+      <label for="no_fees">No Fee: </label>
+      <select name="no_fees" id="no_fees">
+        <option disabled selected value> -- select Yes/No -- </option>
+        <option value=1>Yes</option>
+        <option value=0>No</option>      
+      </select><br>
+      <label for="has_roofdeck">Has Roofdeck: </label>
+      <select name="has_roofdeck" id="has_roofdeck">
+        <option disabled selected value> -- select Yes/No -- </option>
+        <option value=1>Yes</option>
+        <option value=0>No</option>      
+      </select><br>
+      <label for="nas_patio">Has Patio: </label>
+      <select name="has_patio" id="has_patio">
+        <option disabled selected value> -- select Yes/No -- </option>
+        <option value=1>Yes</option>
+        <option value=0>No</option>      
+      </select><br>
+      <label for="has_gym">Has Gym: </label>
+      <select name="has_gym" id="has_gym">
+        <option disabled selected value> -- select Yes/No -- </option>
+        <option value=1>Yes</option>
+        <option value=0>No</option>      
+      </select><br>
+      <label for="has_washer_dryer">Has Washer/Dryer: </label>
+      <select name="has_washer_dryer" id="has_washer_dryer">
+        <option disabled selected value> -- select Yes/No -- </option>
+        <option value=1>Yes</option>
+        <option value=0>No</option>      
+      </select><br>
+      <label for="has_doorman">Has Doorman: </label>
+      <select name="has_doorman" id="has_doorman">
+        <option disabled selected value> -- select Yes/No -- </option>
+        <option value=1>Yes</option>
+        <option value=0>No</option>      
+      </select><br>
+      <label for="has_elevator">Has Elevator: </label>
+      <select name="has_elevator" id="has_elevator">
+        <option disabled selected value> -- select Yes/No -- </option>
+        <option value=1>Yes</option>
+        <option value=0>No</option>      
+      </select><br>
+      <label for="has_dishwasher">Has Dishwasher: </label>
+      <select name="has_dishwasher" id="has_dishwasher">
+        <option disabled selected value> -- select Yes/No -- </option>
+        <option value=1>Yes</option>
+        <option value=0>No</option>      
+      </select><br>
+            
+      <!-- <input type="text" name="no_fees" placeholder="no_fees" required="required" value='1'/>
       <input type="text" name="has_roofdeck" placeholder="has_roofdeck" required="required" value='0'/>
       <input type="text" name="has_patio" placeholder="has_patio" required="required" value='0'/>
       <input type="text" name="has_gym" placeholder="has_gym" required="required" value='1'/>
       <input type="text" name="has_washer_dryer" placeholder="has_washer_dryer" required="required" value='1'/>
       <input type="text" name="has_doorman" placeholder="has_doorman" required="required" value='0'/>
       <input type="text" name="has_elevator" placeholder="has_elevator" required="required" value='1'/>
-      <input type="text" name="has_dishwasher" placeholder="has_dishwasher" required="required" value='1'/>
+      <input type="text" name="has_dishwasher" placeholder="has_dishwasher" required="required" value='1'/> -->
 
       <!-- <button type="submit" class="btn btn-primary btn-block btn-large">Predict Rent</button> -->
     </form>

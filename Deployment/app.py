@@ -26,7 +26,6 @@ def predict():
     final_features = [np.array(int_features)]
     final_features[0][0] = min(max(final_features[0][0], limits[0]), limits[1])
     prediction = model.predict(final_features)
-
     
     output = round(prediction[0], 2)
 

@@ -20,6 +20,7 @@ BOROUGH_DICT = {
     'queens': [0,0,1]
 }
 
+
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -35,9 +36,7 @@ def predict():
     
     output = round(y_sc.inverse_transform(prediction)[0], 0)
 
-    return render_template('index.html', prediction_text='Rent should be $ {}'.format(output))
-
-
+    return render_template('index.html', prediction_text='Predicted Rent: ${}'.format(output))
 
 if __name__ == "__main__":
     app.run(debug=True)
