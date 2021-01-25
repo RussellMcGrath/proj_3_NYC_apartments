@@ -1,1 +1,1 @@
-web: gunicorn Deployment.app:app
+web: gunicorn Deployment_xgboost.app:app
