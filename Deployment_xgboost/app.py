@@ -7,6 +7,10 @@ import pickle
 import sklearn
 import sys
 
+from custom_modeler import custom_modeler
+
+data = pd.read_csv('../input_data/streeteasy.csv')
+
 app = Flask(__name__)
 model = pickle.load(open('XGBModel.pkl', 'rb'))
 sc = pickle.load(open('X_scaler.pkl','rb'))
@@ -19,7 +23,6 @@ BOROUGH_DICT = {
     'manhattan': [0,1,0],
     'queens': [0,0,1]
 }
-
 
 @app.route('/')
 def home():
@@ -36,8 +39,24 @@ def predict():
     
     output = round(y_sc.inverse_transform(prediction)[0], 0)
 
-    # defaults = [x for x in request.form.values()]
     return render_template('index.html', prediction_text='Predicted Rent: ${}'.format(output))
+
+@app.route('/custom')
+def custom():
+    return render_template('custom.html')
+
+@app.route('/custom_results', methods=['POST'])
+def custom_results():
+    feature_values = [x for x in request.form.values()]
+    feature_keys = [x for x in request.form.keys()]
+    user_input = {}
+    for i in range(len(feature_keys)):
+        user_input[feature_keys[i]] = feature_values[i]
+    
+    results = custom_modeler(user_input)
+    print(results)
+
+    return render_template('custom.html', results_matrix=results)
 
 if __name__ == "__main__":
     app.run(debug=True)
