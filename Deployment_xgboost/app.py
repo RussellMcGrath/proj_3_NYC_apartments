@@ -9,14 +9,14 @@ import sys
 
 from custom_modeler import custom_modeler
 
-data = pd.read_csv('../input_data/streeteasy.csv')
+data = pd.read_csv('input_data/streeteasy.csv')
 
 app = Flask(__name__)
-model = pickle.load(open('XGBModel.pkl', 'rb'))
-sc = pickle.load(open('X_scaler.pkl','rb'))
-y_sc = pickle.load(open('y_scaler.pkl','rb'))
+model = pickle.load(open('Deployment_xgboost/XGBModel.pkl', 'rb'))
+sc = pickle.load(open('Deployment_xgboost/X_scaler.pkl','rb'))
+y_sc = pickle.load(open('Deployment_xgboost/y_scaler.pkl','rb'))
 
-model_columns = 'XGB_model_columns.pkl'
+model_columns = 'Deployment_xgboost/XGB_model_columns.pkl'
 
 BOROUGH_DICT = {
     'brooklyn': [1,0,0],

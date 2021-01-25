@@ -7,7 +7,7 @@ def custom_modeler(user_input):
     import numpy as np
 
     #import data csv
-    df = pd.read_csv('../input_data/streeteasy.csv')
+    df = pd.read_csv('input_data/streeteasy.csv')
 
     # remove extra columns
     trimmed_df = df.drop(columns=["rental_id","building_id"])
@@ -192,7 +192,7 @@ def custom_modeler(user_input):
             "r2": round(all_models["r2"][0],4),
             "prediction": round(lm_pred,2)},
         "lasso": {"model":"Linear Regression",
-            "r2": round(all_models["r2"][1],4,
+            "r2": round(all_models["r2"][1],4),
             "prediction": round(lasso_pred,2)},
         "ridge": {"model":"Ridge",
             "r2": round(all_models["r2"][2],4),

@@ -1,1 +1,1 @@
-FLASK_APP=Deployment/app.py flask run
+FLASK_APP=Deployment_xgboost/app.py flask run
