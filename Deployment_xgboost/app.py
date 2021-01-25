@@ -7,7 +7,7 @@ import pickle
 import sklearn
 import sys
 
-from custom_modeler import custom_modeler
+from Deployment_xgboost.custom_modeler import custom_modeler
 
 data = pd.read_csv('input_data/streeteasy.csv')
 
