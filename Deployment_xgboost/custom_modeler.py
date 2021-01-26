@@ -2,7 +2,7 @@ def custom_modeler(user_input):
     # Set the seed value for the notebook so the results are reproducible
     from numpy.random import seed
     seed(1)
-    import tensorflow
+    # import tensorflow
     import pandas as pd
     import numpy as np
 
@@ -57,7 +57,7 @@ def custom_modeler(user_input):
     ### SCALE DATA ###
     from sklearn.model_selection import train_test_split
     from sklearn.preprocessing import LabelEncoder, MinMaxScaler
-    from tensorflow.keras.utils import to_categorical
+    # from tensorflow.keras.utils import to_categorical
     from sklearn.preprocessing import StandardScaler
     # Create a StandardScater model and fit it to the training data
     X_scaler = StandardScaler().fit(X_train)
@@ -135,32 +135,32 @@ def custom_modeler(user_input):
     all_models["r2"].append(r2)
 
     ### Neural Network ###
-    from tensorflow.keras.models import Sequential
-    from tensorflow.keras.layers import Dense
-    # Define model
-    model = Sequential()
-    model.add(Dense(500, input_dim=len(new_input_dict.values()), activation= "relu"))
-    model.add(Dense(100, activation= "relu"))
-    model.add(Dense(50, activation= "relu"))
-    model.add(Dense(1))
-    # Compile and fit the model
-    model.compile(optimizer='adam', loss='mean_squared_error', metrics=['mean_squared_error'])
-    # Fit the model to the training data
-    model.fit(
-        X_train_scaled,
-        y_train_scaled,
-        epochs=100,
-        shuffle=True,
-        verbose=2
-    )
-    pred_train_scaled= model.predict(X_train_scaled)
-    MSE = np.sqrt(mean_squared_error(y_train_scaled,pred_train_scaled))
-    pred = model.predict(X_test_scaled)
-    r2 = np.sqrt(mean_squared_error(y_test_scaled, pred))
-    # save error results
-    all_models["models"].append(model)
-    all_models["mse"].append(MSE)
-    all_models["r2"].append(r2)
+    # from tensorflow.keras.models import Sequential
+    # from tensorflow.keras.layers import Dense
+    # # Define model
+    # model = Sequential()
+    # model.add(Dense(500, input_dim=len(new_input_dict.values()), activation= "relu"))
+    # model.add(Dense(100, activation= "relu"))
+    # model.add(Dense(50, activation= "relu"))
+    # model.add(Dense(1))
+    # # Compile and fit the model
+    # model.compile(optimizer='adam', loss='mean_squared_error', metrics=['mean_squared_error'])
+    # # Fit the model to the training data
+    # model.fit(
+    #     X_train_scaled,
+    #     y_train_scaled,
+    #     epochs=100,
+    #     shuffle=True,
+    #     verbose=2
+    # )
+    # pred_train_scaled= model.predict(X_train_scaled)
+    # MSE = np.sqrt(mean_squared_error(y_train_scaled,pred_train_scaled))
+    # pred = model.predict(X_test_scaled)
+    # r2 = np.sqrt(mean_squared_error(y_test_scaled, pred))
+    # # save error results
+    # all_models["models"].append(model)
+    # all_models["mse"].append(MSE)
+    # all_models["r2"].append(r2)
 
     #### GET PREDICTIONS ####
     # scale input values
@@ -183,8 +183,8 @@ def custom_modeler(user_input):
     XGB_pred_array = y_scaler.inverse_transform([XGBModel.predict(input_values_scaled),])
     XGB_pred = XGB_pred_array[0][0]
     # Neural Network Model
-    nn_pred_array = y_scaler.inverse_transform([model.predict(input_values_scaled),])
-    nn_pred = nn_pred_array[0][0][0]
+    # nn_pred_array = y_scaler.inverse_transform([model.predict(input_values_scaled),])
+    # nn_pred = nn_pred_array[0][0][0]
 
     # assemble results into dictionary
     results = {
@@ -202,10 +202,10 @@ def custom_modeler(user_input):
             "prediction": round(elasticnet_pred,2)},
         "xgb": {"model":"XGBoost Regressor",
             "r2": round(all_models["r2"][4],4),
-            "prediction": round(XGB_pred,2)},
-        "nn": {"model":"Neural Network",
-            "r2": round(all_models["r2"][5],4),
-            "prediction": round(nn_pred,2)},
+            "prediction": round(XGB_pred,2)}#,
+        # "nn": {"model":"Neural Network",
+        #     "r2": round(all_models["r2"][5],4),
+        #     "prediction": round(nn_pred,2)},
     }
 
     return (results)
