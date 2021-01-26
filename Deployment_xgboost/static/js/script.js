@@ -6,6 +6,7 @@ var yesno = ["Yes","No"]
 
 feature_button.on("click", function() {
     var selection = d3.select(this);
+    selection.attr("style","visibility:hidden");
     form.append("label")
         .text(selection.text()+":");
     if(yesno_features.includes(selection.attr("name"))) {
@@ -29,9 +30,14 @@ feature_button.on("click", function() {
         }
         form.append("br");
     } else {
+        
         form.append("input")
             .attr("name",selection.attr("name"))
             .attr("placeholder","--enter value--");
         form.append("br");
     }
 })
+console.log(results);
+if (results) {
+    console.log(results);
+}

@@ -22,27 +22,37 @@
   <br>
 
     <div class="container">
+      <div class="row results"></div>
       <div class="row">
-        <div class="col-md-3" id="buttons">
-          <button class="featurebutton" type="button" name="borough">Borough</button> <br>
-          <button class="featurebutton" type="button" name="neighborhood">Neighborhood</button> <br>
-          <button class="featurebutton" type="button" name="submarket">Submarket</button> <br>
-          <button class="featurebutton" type="button" name="bedrooms">Bedrooms</button> <br>
-          <button class="featurebutton" type="button" name="bathrooms">Bathrooms</button> <br>
-          <button class="featurebutton" type="button" name="size_sqft">Square Footage</button> <br>
-          <button class="featurebutton" type="button" name="min_to_subway">Minutes to Subway</button> <br>
-          <button class="featurebutton" type="button" name="floor">Floor</button> <br>
-          <button class="featurebutton" type="button" name="building_age_yrs">Building Age</button> <br>
-          <button class="featurebutton" type="button" name="no_fee">No Fee</button> <br>
-          <button class="featurebutton" type="button" name="has_roofdeck">Has Roofdeck</button> <br>
-          <button class="featurebutton" type="button" name="has_washer_dryer">Has Washer/Dryer</button> <br>
-          <button class="featurebutton" type="button" name="has_doorman">Has Doorman</button> <br>
-          <button class="featurebutton" type="button" name="has_elevator">Has Elevator</button> <br>
-          <button class="featurebutton" type="button" name="has_dishwasher">Has Dishwasher</button> <br>
-          <button class="featurebutton" type="button" name="has_patio">Has Patio</button> <br>
-          <button class="featurebutton" type="button" name="has_gym">Has Gym</button> <br>
+        <div class="col-md-4" id="buttons">
+          <div class="row featureheader">
+            Apartment Attributes
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <button class="featurebutton" type="button" name="borough">Borough</button> <br>
+              <button class="featurebutton" type="button" name="neighborhood">Neighborhood</button> <br>
+              <button class="featurebutton" type="button" name="submarket">Submarket</button> <br>
+              <button class="featurebutton" type="button" name="bedrooms">Bedrooms</button> <br>
+              <button class="featurebutton" type="button" name="bathrooms">Bathrooms</button> <br>
+              <button class="featurebutton" type="button" name="size_sqft">Square Footage</button> <br>
+              <button class="featurebutton" type="button" name="min_to_subway">Minutes to Subway</button> <br>
+              <button class="featurebutton" type="button" name="floor">Floor</button> <br>
+              <button class="featurebutton" type="button" name="building_age_yrs">Building Age</button> <br>
+            </div>
+            <div class="col-md-6">
+              <button class="featurebutton" type="button" name="no_fee">No Fee</button> <br>
+              <button class="featurebutton" type="button" name="has_roofdeck">Has Roofdeck</button> <br>
+              <button class="featurebutton" type="button" name="has_washer_dryer">Has Washer/Dryer</button> <br>
+              <button class="featurebutton" type="button" name="has_doorman">Has Doorman</button> <br>
+              <button class="featurebutton" type="button" name="has_elevator">Has Elevator</button> <br>
+              <button class="featurebutton" type="button" name="has_dishwasher">Has Dishwasher</button> <br>
+              <button class="featurebutton" type="button" name="has_patio">Has Patio</button> <br>
+              <button class="featurebutton" type="button" name="has_gym">Has Gym</button> <br>
+            </div>
+          </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-8">
           <form action="{{ url_for('custom_results') }}" method="post">
             <button type="submit" class="btn btn-primary btn-block btn-large">Predict Rent (allow 30sec to run)</button>            
           </form>
@@ -51,8 +61,11 @@
     </div>
 
    <br>
-
-   <script type="text/javascript" src="../static/js/script.js"></script>
+   
+  <!-- <script type="text/javascript">
+    var results = {{ results_matrix }};
+  </script> -->
+  <script type="text/javascript" src="../static/js/script.js"></script>
 
  </div>
 

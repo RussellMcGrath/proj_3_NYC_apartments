@@ -56,7 +56,7 @@ def custom_results():
     results = custom_modeler(user_input)
     print(results)
 
-    return render_template('custom.html', results_matrix=results)
+    return render_template('custom.html', results_matrix=results['lm'])
 
 if __name__ == "__main__":
     app.run(debug=True)
