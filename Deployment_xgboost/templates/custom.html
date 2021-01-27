@@ -97,9 +97,9 @@
    <br>
    
   <script type="text/javascript">
-    var boroughs = '{{ boroughs }}';
-    var neighborhoods = '{{ neighborhoods }}';
-    var submarkets = '{{ submarkets }}';
+    var boroughs = JSON.parse('{{ boroughs | tojson | safe }}');
+    var neighborhoods = JSON.parse('{{ neighborhoods | tojson | safe }}');
+    var submarkets = JSON.parse('{{ submarkets | tojson | safe }}');
   </script>
 
   <script type="text/javascript" src="../static/js/script.js"></script>

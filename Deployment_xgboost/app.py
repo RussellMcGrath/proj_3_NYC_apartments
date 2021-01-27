@@ -8,6 +8,7 @@ import sklearn
 import sys
 
 from Deployment_xgboost.custom_modeler import custom_modeler
+from Deployment_xgboost.dropdownlists import boroughs, neighborhoods, submarkets
 
 data = pd.read_csv('input_data/streeteasy.csv')
 
@@ -43,7 +44,10 @@ def predict():
 
 @app.route('/custom')
 def custom():
-    return render_template('custom.html')
+    boroughs_dict = {"list": boroughs}
+    neighborhoods_dict = {"list": neighborhoods}
+    submarkets_dict = {"list": submarkets}
+    return render_template('custom.html', boroughs=boroughs_dict, neighborhoods=neighborhoods_dict, submarkets=submarkets_dict)
 
 @app.route('/custom_results', methods=['POST'])
 def custom_results():
@@ -62,11 +66,14 @@ def custom_results():
     elasticnet = results["elas"]
     xgboost = results["xgb"]
 
-    boroughs = response[1]
-    neighborhoods = response[2]
-    submarkets = response[3]
+    # boroughs = response[1]
+    # neighborhoods = response[2]
+    # submarkets = response[3]
+    boroughs_dict = {"list": boroughs}
+    neighborhoods_dict = {"list": neighborhoods}
+    submarkets_dict = {"list": submarkets}
 
-    return render_template('custom.html', results_matrix=results, boroughs=boroughs, neighborhoods=neighborhoods, submarkets=submarkets)
+    return render_template('custom.html', results_matrix=results, boroughs=boroughs_dict, neighborhoods=neighborhoods_dict, submarkets=submarkets_dict)
 
 if __name__ == "__main__":
     app.run(debug=True)
