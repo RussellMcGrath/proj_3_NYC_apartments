@@ -89,7 +89,8 @@
         </div>
         <div class="col-md-8">
           <form action="{{ url_for('custom_results') }}" method="post">
-            <button type="submit" class="btn btn-primary btn-block btn-large">Predict Rent (allow 30sec to run)</button>            
+            <p class="note">Note: Application will time out if request takes longer than 30sec.</p>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict Rent</button>            
           </form>
         </div>
       </div>

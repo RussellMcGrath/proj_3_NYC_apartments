@@ -57,8 +57,8 @@ def custom_results():
     for i in range(len(feature_keys)):
         user_input[feature_keys[i]] = feature_values[i]
     
-    response = custom_modeler(user_input)
-    results = response[0]
+    results = custom_modeler(user_input)
+    # results = response[0]
     print(results)
     lm = results["lm"]
     lasso = results["lasso"]
@@ -66,9 +66,6 @@ def custom_results():
     elasticnet = results["elas"]
     xgboost = results["xgb"]
 
-    # boroughs = response[1]
-    # neighborhoods = response[2]
-    # submarkets = response[3]
     boroughs_dict = {"list": boroughs}
     neighborhoods_dict = {"list": neighborhoods}
     submarkets_dict = {"list": submarkets}

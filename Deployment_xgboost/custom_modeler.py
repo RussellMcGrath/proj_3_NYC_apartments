@@ -208,4 +208,5 @@ def custom_modeler(user_input):
         #     "prediction": round(nn_pred,2)},
     }
 
-    return (results,boroughs,neighborhoods,submarkets)
+    return (results)
+    # return (results,boroughs,neighborhoods,submarkets)

@@ -113,3 +113,8 @@ label {
 	display: block;
 	text-align: center;
 }
+
+.note {
+	font-size: 11px;
+	margin-bottom: 8px;
+}
