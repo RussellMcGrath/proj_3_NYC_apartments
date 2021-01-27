@@ -75,5 +75,9 @@ def custom_results():
 
     return render_template('custom.html', results_matrix=results, boroughs=boroughs_dict, neighborhoods=neighborhoods_dict, submarkets=submarkets_dict)
 
+@app.route('/tableau')
+def tableau():
+    return render_template('tableau.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
