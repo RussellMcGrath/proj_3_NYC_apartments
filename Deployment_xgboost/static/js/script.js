@@ -13,6 +13,7 @@ feature_button.on("click", function() {
         form.append("select")
             .attr("name",selection.attr("name"))
             .attr("class",selection.attr("name"))
+            .attr("required","required")
             .append("option")
                 .attr("selected","true")
                 .attr("disabled","disabled")
@@ -33,11 +34,10 @@ feature_button.on("click", function() {
         
         form.append("input")
             .attr("name",selection.attr("name"))
+            .attr("required","required")
             .attr("placeholder","--enter value--");
         form.append("br");
     }
 })
-console.log(results);
-if (results) {
-    console.log(results);
-}
+
+console.log(boroughs)

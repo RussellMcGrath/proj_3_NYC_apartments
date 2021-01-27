@@ -53,10 +53,20 @@ def custom_results():
     for i in range(len(feature_keys)):
         user_input[feature_keys[i]] = feature_values[i]
     
-    results = custom_modeler(user_input)
+    response = custom_modeler(user_input)
+    results = response[0]
     print(results)
+    lm = results["lm"]
+    lasso = results["lasso"]
+    ridge = results["ridge"]
+    elasticnet = results["elas"]
+    xgboost = results["xgb"]
 
-    return render_template('custom.html', results_matrix=results)
+    boroughs = response[1]
+    neighborhoods = response[2]
+    submarkets = response[3]
+
+    return render_template('custom.html', results_matrix=results, boroughs=boroughs, neighborhoods=neighborhoods, submarkets=submarkets)
 
 if __name__ == "__main__":
     app.run(debug=True)

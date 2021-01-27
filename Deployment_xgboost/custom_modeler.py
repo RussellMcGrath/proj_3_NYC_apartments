@@ -16,24 +16,24 @@ def custom_modeler(user_input):
     
     # convert user input values to dummified format
     new_input_dict = {}
+    boroughs = sorted(list(df["borough"].unique()))
+    neighborhoods = sorted(list(df["neighborhood"].unique()))
+    submarkets = sorted(list(df["submarket"].unique()))
 
     for feature in user_input:
-        if feature == "borough":
-            boroughs = sorted(list(df["borough"].unique()))
+        if feature == "borough":            
             for borough in boroughs:
                 if user_input["borough"] == borough:
                     new_input_dict[f"borough_{borough}"] = 1
                 else:
                     new_input_dict[f"borough_{borough}"] = 0
-        elif feature == "neighborhood":
-            neighborhoods = sorted(list(df["neighborhood"].unique()))
+        elif feature == "neighborhood":            
             for neighborhood in neighborhoods:
                 if user_input["neighborhood"] == neighborhood:
                     new_input_dict[f"neighborhood_{neighborhood}"] = 1
                 else:
                     new_input_dict[f"neighborhood_{neighborhood}"] = 0
         elif feature == "submarket":
-            submarkets = sorted(list(df["submarket"].unique()))
             for submarket in submarkets:
                 if user_input["submarket"] == submarket:
                     new_input_dict[f"submarket_{submarket}"] = 1
@@ -191,7 +191,7 @@ def custom_modeler(user_input):
         "lm": {"model":"Linear Regression",
             "r2": round(all_models["r2"][0],4),
             "prediction": round(lm_pred,2)},
-        "lasso": {"model":"Linear Regression",
+        "lasso": {"model":"Lasso",
             "r2": round(all_models["r2"][1],4),
             "prediction": round(lasso_pred,2)},
         "ridge": {"model":"Ridge",
@@ -208,4 +208,4 @@ def custom_modeler(user_input):
         #     "prediction": round(nn_pred,2)},
     }
 
-    return (results)
+    return (results,boroughs,neighborhoods,submarkets)
