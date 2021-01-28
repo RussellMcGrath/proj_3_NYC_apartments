@@ -35,10 +35,6 @@ def home():
 def optimal():
     return render_template('optimal.html')
 
-@app.route('/testing')
-def testing():
-    return render_template('testing.html')
-
 @app.route('/predict',methods=['POST'])
 def predict():
 
