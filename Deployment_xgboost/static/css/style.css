@@ -118,3 +118,49 @@ label {
 	font-size: 11px;
 	margin-bottom: 8px;
 }
+
+.navbar {
+	background-color: lightgreen !important;
+}
+
+.display-4 {
+	color: black;
+	background-color: white;
+}
+
+.navbar-brand {
+	margin-right: 30px;
+}
+
+.jumbotron {
+	background-image: url("../images/sketch.JPG");
+}
+
+.homep {
+	text-align: left;
+	font-weight: lighter;
+}
+
+.forecasters {
+	margin-bottom: 8px;
+}
+
+main {
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-botton: 10%;
+}
+
+.homepageh3 {
+	text-align: left;
+}
+
+.post {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.pagelinks {
+	float: left;
+	text-align: left;
+}

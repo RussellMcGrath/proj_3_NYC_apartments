@@ -209,4 +209,3 @@ def custom_modeler(user_input):
     }
 
     return (results)
-    # return (results,boroughs,neighborhoods,submarkets)
