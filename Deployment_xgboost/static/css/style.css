@@ -142,13 +142,14 @@ label {
 }
 
 .forecasters {
-	margin-bottom: 8px;
+	margin-bottom: 0px;
+	float: left;
 }
 
 main {
 	margin-left: 10%;
 	margin-right: 10%;
-	margin-botton: 10%;
+	margin-bottom: 10%;
 }
 
 .homepageh3 {

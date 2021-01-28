@@ -46,7 +46,7 @@ def predict():
     
     output = round(y_sc.inverse_transform(prediction)[0], 0)
 
-    return render_template('index.html', prediction_text='Predicted Rent: ${}'.format(output))
+    return render_template('optimal.html', prediction_text='Predicted Rent: ${}'.format(output))
 
 @app.route('/custom')
 def custom():
